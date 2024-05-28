@@ -1,0 +1,76 @@
+
+
+<p 
+    [ngStyle]="{
+        backgroundColor : bgColor,
+        color : 'white',
+        padding : '20px'
+    }"
+> 
+    The <strong> {{ProductName}}</strong> is the <strong>{{ProductId}}</strong> and the product status is <strong> {{ProductStatus}} </strong>
+</p> 
+
+<p
+[innerHTML]="ProductName"
+[ngStyle]="{
+    backgroundColor : getColor(),
+    padding : '15px'
+    }"
+>
+    The <strong> {{ProductName}}</strong> is the <strong>{{ProductId}}</strong>
+</p>
+
+<button class="btn btn-primary mb-3 cursor-pointer" disabled>Button</button>
+
+<p [innerHTML]="infoHTML">
+   
+</p>
+
+<button class="btn btn-outline-dark mb-3"  [disabled]="isDisabled">Dark</button>
+
+<input type="text" class="form-control mb-3"  [value]="Name1">
+
+<input type="text" class="form-control mb-3" [value]="'Welcome to Angular'">
+
+<input type="text" class="form-control mb-3" (keyup)="onKeyUp($event)">
+
+<input type="text" class="form-control mb-2" #Name>
+
+<button class="btn btn-primary mb-2" (click)="onAdd(Name)"> Add </button>
+
+<p class="alert alert-secondary">
+    OR Method to transfer data input control on button
+
+    <input type="text" class="form-control mb-2" #clickBtn>
+
+    <button class="btn btn-primary" (click)="onAddInfo()" [disabled]="count === 5"> AddInfo </button>
+
+    <button class="btn btn-primary ml-2" (click)="onRemoveInfo()" [disabled]="count === 0"> RemoveInfo </button>
+    
+</p>
+
+<p class="alert alert-info" *ngIf="info; else noInfo">{{info}} Information added</p>
+
+<!-- <p class="alert alert-danger" *ngIf="!info">No Information added yet</p> -->
+
+<ng-template #noInfo>
+    <p class="alert alert-danger">No Information added yet</p>
+</ng-template>
+
+<p class="alert alert-dark" *ngIf="count">
+    {{count}} numbers added
+</p>
+
+<p class="alert alert-warning" *ngIf="count === 5">
+    You can add maximum of 5.
+</p>
+
+<br>
+<p  class="alert alert-dark">
+    Two way data binding
+
+    <input type="text" [(ngModel)]="twoway" class="form-control mb-2" #inputcontrol>
+
+    {{twoway}} data gets added.
+</p>
+

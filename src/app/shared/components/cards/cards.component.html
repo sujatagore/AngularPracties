@@ -1,0 +1,81 @@
+
+
+
+<ul class="nav nav-pills" 
+[ngStyle]="{
+    backgroundColor : 'red',
+    padding : '15px'
+    }"
+>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link text-white"
+        (click)="onTabClick('angular')" 
+        [ngClass]="{
+            active : selectedWork === 'angular'
+        }">
+            Angular
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link text-white" 
+        (click)="onTabClick('typescript')" 
+        [ngClass]="{
+            active : selectedWork === 'typescript'
+        }">
+            Typescript
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link text-white" 
+        (click)="onTabClick('javascript')" 
+        [ngClass]="{
+            active : selectedWork === 'javascript'
+        }">
+            Javascript
+        </a>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link text-white" 
+        (click)="onTabClick('HTML')" 
+        [ngClass]="{
+            active : selectedWork.toLocaleLowerCase().includes('html')
+        }">
+            HTML
+        </a>
+    </li>
+</ul>
+<hr>
+<div class="tab-body">
+   <div class="card alert alert-danger" *ngIf="selectedWork === 'angular'">
+        <div class="card-body">
+            <strong>Angular</strong>
+            Angular is a TypeScript-based, free and open-source single-page web application framework run on Node.js. 
+            It is led by the Angular Team at Google and by a community of individuals and corporations. 
+            Angular is a complete rewrite from the same team that built AngularJS.
+        </div>
+   </div>
+   <div class="card alert alert-secondary" *ngIf="selectedWork === 'typescript'">
+        <div class="card-body">
+            <strong>Typescript</strong>
+            TypeScript is a free and open-source high-level programming language developed by 
+            Microsoft that adds static typing with optional type annotations to JavaScript. 
+            It is designed for the development of large applications and transpiles to JavaScript.
+        </div>
+   </div>
+   <div class="card alert alert-info" *ngIf="selectedWork === 'javascript'">
+        <div class="card-body">
+            <strong>Javascript</strong>
+            JavaScript, often abbreviated as JS, is a programming language and core technology of the Web, 
+            alongside HTML and CSS. 99% of websites use JavaScript on the client side for webpage behavior. 
+            Web browsers have a dedicated JavaScript engine that executes the client code.
+        </div>
+   </div>
+   <div class="card alert alert-dark" *ngIf="selectedWork === 'HTML'">
+        <div class="card-body">
+            <strong>HTML</strong>
+            HyperText Markup Language is the standard markup language for documents designed to be displayed in a web browser. 
+            It defines the content and structure of web content.It is often assisted by technologies such as 
+            Cascading Style Sheets and scripting languages such as JavaScript.
+        </div>
+   </div>
+</div>

@@ -1,0 +1,65 @@
+
+<h2 [ngStyle]="{
+    backgroundColor : 'yellow',
+    padding : '15px'
+    }">Mobile Cards</h2>
+<div class="row">
+    <div class="col-12 mb-4" *ngFor="let mobile of mobileArr">
+        <div class="card"
+            [ngClass]="{
+                'notAvl' : !mobile.isAvailable
+            }"
+        >
+            <p class="noPrd d-flex justify-content-center align-items-center" *ngIf="!mobile.isAvailable">
+                The Product is not Available
+            </p>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="imgcontainer">
+                            <img *ngIf="mobile.image ; else noImg"
+                            [src]="mobile.image" 
+                            class="img-fluid"
+                            [alt]="mobile.name" [title]="mobile.name">
+
+                            <ng-template #noImg>
+                                <img src="https://placehold.co/600X400" class="img-fluid">
+                            </ng-template>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h3 class="display-3 mb-2">
+                            {{mobile.name}}
+
+                            <small class="rating text-white p-2"
+                            [ngClass]="{
+                                'bg-success' : mobile.rating >= 4,
+                                'bg-warning' : mobile.rating >= 3 && mobile.rating < 4,
+                                'bg-danger' : mobile.rating < 3
+                            }"
+                            >
+                                {{mobile.rating}}
+                            </small>
+                        </h3>
+                        <h4>
+                            {{mobile.brand}}
+                        </h4>
+                        <p>
+                            {{mobile.broadband}}
+                        </p>
+                        <p>
+                            {{mobile.Weight}}
+                        </p>
+                        <p>
+                            {{mobile.Build}}
+                        </p>
+                        <p>
+                            <strong>Rs.{{mobile.price}}</strong>
+                        </p>
+                        {{mobile.isAvailable}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
